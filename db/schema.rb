@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921100430) do
+ActiveRecord::Schema.define(version: 20160926124504) do
 
   create_table "estates", force: :cascade do |t|
     t.string   "size"
     t.text     "description"
     t.float    "price"
-    t.float    "latitude"
-    t.float    "longitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "direction"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["user_id"], name: "index_estates_on_user_id"
   end
 

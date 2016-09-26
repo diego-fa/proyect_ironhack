@@ -19,9 +19,6 @@
           <li> <%= link_to 'estates', estates_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-         <!--  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li> -->
           <% if user_signed_in? %>
             <p><%= link_to 'Log-out', destroy_user_session_path, method:'DELETE', class: "glyphicon glyphicon-log-out"  %></p>
           <% else %>

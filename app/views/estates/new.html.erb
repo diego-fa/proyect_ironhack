@@ -28,17 +28,24 @@
     <%= f.text_field :price %>
   </div>
 
+  <div class="field">
+    <%= f.label :direction %><br/>
+    <%= f.text_field :direction %>
+  </div>
+
 
   <div class="field">
     <%= f.label :latitude %><br />
-    <%= f.text_field :latitude, autocomplete: "off" %>
+    <%= f.text_field :latitude%>
   </div>
 
   <div class="field">
     <%= f.label :longitude %><br />
-    <%= f.text_field :longitude, autocomplete: "off" %>
+    <%= f.text_field :longitude%>
   </div>
   
+
+
   
   <div class="actions">
     <%= f.submit "Sign up" %>

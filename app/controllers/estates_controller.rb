@@ -12,12 +12,12 @@ class EstatesController < ApplicationController
     marker.lat estate.latitude
     marker.lng estate.longitude
 end
+
   end
 
   def edit
     @user = current_user
     @estate = Estate.find_by(id: params[:id])
-
   end
 
   def create
