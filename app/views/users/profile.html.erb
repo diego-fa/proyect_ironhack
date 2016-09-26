@@ -1,0 +1,24 @@
+
+
+<p>
+<h2><%= @user.name %></h2>
+<strong>Telephone:</strong><%= @user.telephone %><br/>
+<strong>Email:</strong><%= @user.email %>
+</p>	
+<table border='1'>
+    <tr>
+      <td>Size</td>
+      <td>description</td>
+      <td>price</td>
+    </tr>
+<% @user.estates.each do |estate| %>
+      <tr>
+        <td><%= estate.size %></td>
+        <td><%= estate.description %></td>   
+        <td><%= estate.price %></td>
+        <td><%= link_to 'show estate', user_estate_path(current_user, estate) %> </td>
+        <td><%= link_to 'edit estate', edit_user_estate_path(current_user, estate)%></td>      
+        <td><%= link_to 'delete estate', user_estate_path(current_user, estate), method: :delete%></td>
+      </tr>
+    <% end %>
+</table>
