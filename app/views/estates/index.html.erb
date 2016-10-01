@@ -1,21 +1,28 @@
 <p id="notice"><%= notice %></p>
 <h1>estates (<%= @estates_count %>)</h1>
 <br><br>
+
+<form>
+ <input name='q' <%= @q %> >
+ <button type='submit' class="btn btn-success btn-sm glyphicon glyphicon-search ">Buscar</button>
+</form>
+
 <table class='table table-bordered table-hover'>
     <tr>
+      <th>Adress</th>
       <th>User</th>
       <th>Size</th>
-      <th>Description</th>
       <th>Price</th>
       <th>Actions</th>
     </tr>
     <% @estates.each do |estate| %>
       <tr>
+        <td><%= estate.description %></td> 
         <td><%= estate.user.name %></td>
-        <td><%= estate.size %></td>
-        <td><%= estate.description %></td>   
+        <td><%= estate.size %></td>        
         <td><%= estate.price %></td>
         <td><%= link_to 'show estate', user_estate_path(1, estate), class: "btn btn-primary btn-sm" %></td>
       </tr>
     <% end %>
 </table>
+<%= will_paginate @estates %>

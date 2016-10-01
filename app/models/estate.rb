@@ -4,5 +4,7 @@ class Estate < ApplicationRecord
 	has_many :rents
 
 	geocoded_by :description	
-	after_validation :geocode	
+	after_validation :geocode
+
+		
 end

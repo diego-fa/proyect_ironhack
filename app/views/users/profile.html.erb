@@ -4,21 +4,34 @@
 <h2><%= @user.name %></h2>
 <strong>Telephone:</strong><%= @user.telephone %><br/>
 <strong>Email:</strong><%= @user.email %>
+<%= link_to 'edit', edit_user_registration_path(@user, [:id]), class: "btn btn-success btn-sm glyphicon glyphicon-pencil " %>
 </p>	
-<table border='1'>
-    <tr>
-      <td>Size</td>
-      <td>description</td>
-      <td>price</td>
-    </tr>
-<% @user.estates.each do |estate| %>
+<div class="row">
+  <div class="col-sm-8 ">
+  <table class='table table-bordered table-hover'>
       <tr>
-        <td><%= estate.size %></td>
-        <td><%= estate.description %></td>   
-        <td><%= estate.price %></td>
-        <td><%= link_to 'show estate', user_estate_path(current_user, estate) %> </td>
-        <td><%= link_to 'edit estate', edit_user_estate_path(current_user, estate)%></td>      
-        <td><%= link_to 'delete estate', user_estate_path(current_user, estate), method: :delete%></td>
+        <th>Size</th>
+        <th>direction</th>
+        <th>price</th>
+        <th>actions</th>
       </tr>
-    <% end %>
-</table>
+  <% @user.estates.each do |estate| %>
+        <tr>
+          <td><%= estate.size %></td>
+          <td><%= estate.description %></td>
+          <td><%= estate.price %></td>
+          <td>
+            <%= link_to 'show estate', user_estate_path(current_user, estate), class: "btn btn-primary btn-sm" %> 
+            <%= link_to 'edit estate', edit_user_estate_path(current_user, estate), class: "btn btn-success btn-sm"%>      
+            <%= link_to 'delete estate', user_estate_path(current_user, estate), method: :delete, class: "btn btn-danger btn-lm"%>
+          </td>
+        </tr>
+      <% end %>
+  </table>
+  <%= link_to 'new estate', new_user_estate_path(current_user), class: "btn btn-primary btn-lg"%>
+  </div>
+
+  <div class="col-sm-4">
+    <img src="/images/horse-2.png" alt="horseimg" class="img-m">
+  </div>
+</div>

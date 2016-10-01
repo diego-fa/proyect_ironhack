@@ -1,18 +1,27 @@
 class EstatesController < ApplicationController
 
   def index
-    @user = current_user
-    @estates = Estate.all
+  @q = params[:q]
+  @user = current_user
+  if @q 
+    @estates = Estate.where("description like ?", "%#{@q}%").paginate(:page => params[:page], :per_page => 5)
     @estates_count = @estates.count
+  else
+    @estates = Estate.paginate(:page => params[:page], :per_page => 5) 
+    respond_to do |format|
+      format.html
+      format.json { render json: @estates }
+    end 
+   end
+  @estates_count = @estates.count
   end
 
   def show
     @estate = Estate.find_by(id: params[:id])
     @hash = Gmaps4rails.build_markers(@estate) do |estate, marker|
-    marker.lat estate.latitude
-    marker.lng estate.longitude
-end
-
+      marker.lat estate.latitude
+      marker.lng estate.longitude
+    end
   end
 
   def edit

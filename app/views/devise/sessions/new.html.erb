@@ -1,12 +1,21 @@
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-8"></div>
+  <div class="col-md-10">
+    <h1>Quienes Somos?</h1>
+    <p>
+      ¿Tienes una finca rural y no sabes que hacer o como rentabilizarla?.</br>
+      ¿Eres un aficionado a la equitación y no sabes donde hospedar a tu caballo?</br>
+      Rent&Ride encuentra la solucion a estos problemas, viaja y alquila fincas que 
+      nuestros usuarios suben a nuestra pagina, te damos la informacion para que tu 
+      caballo no se quede en la cuadra !Llevatelo contigo! 
+    </p>
+    <img src="/images/horses-1.jpg" class="img-m img-thumbnail img-responsive">
+  </div>
   <div class="col-md-2"> 
-    <h2 class="field">Log in</h2>
+    <h2 class="field glyphicon glyphicon-log-in"> Log-in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email%><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
 
@@ -23,7 +32,7 @@
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in", class: "btn btn-success btn-sm" %>
     </div>
     <% end %>
     <%= render "devise/shared/links" %>

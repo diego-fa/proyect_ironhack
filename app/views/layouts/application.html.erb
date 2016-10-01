@@ -4,50 +4,52 @@
     <title>RentandRide</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application'%>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Rent&Ride</a>
+          
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home</a></li>
+          <li><img src="/images/logo" class="logo navbar-brand " alt="Brand"></li>
+          <li class=""><a href="/">Home</a></li>
           <li> <%= link_to 'estates', estates_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <p><%= link_to 'Log-out', destroy_user_session_path, method:'DELETE', class: "glyphicon glyphicon-log-out"  %></p>
+            <li>
+              <%= link_to 'Log-out', destroy_user_session_path, method:'DELETE', class: "glyphicon glyphicon-log-out"  %>
+            </li>           
           <% else %>
-            <p>
-              <%= link_to 'Sign-up', new_user_registration_path, class: "glyphicon glyphicon-user" %> |
-              <%= link_to 'Sign_in', new_user_session_path, class: "glyphicon glyphicon-log-in" %>
-            </p>
-        
+            <li>
+              <%= link_to 'Sign-up', new_user_registration_path, class: "glyphicon glyphicon-user" %>
+            </li>          
           <% end %>
         </ul>
       </div>
     </nav>
     
     <div class="container">
-      
-     
-      <div class="row">
-       
-          
-
-      </div>
     
       <div class="entry">
         <%= yield %>
       </div>
-      
-      <div class="row panel-footer" id="footer">
+       </div>
+      <div class="row panel-footer " id="footer">
+        <div class="splitter"></div>
+        <div class="bar row">
+            <div class="bar-wrap">
+                <div class="copyright col-md-10">2016 Diego Fernandez Alvarez IronHack</div>
+            </div>
+
+        </div>
+
       
       </div>
-    </div>
+   
   </body>
 </html>
